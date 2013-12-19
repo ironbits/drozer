@@ -534,6 +534,11 @@ class Session(cmd.Cmd):
 
     def preloop(self):
         cmd.Cmd.preloop(self)
+
+        #should we wish to change the prompt :D
+        if not self.has_context():
+            self.prompt = self.prompt.replace(">","-limited>")
+
         if(self.__onecmd):
             return
         try:
